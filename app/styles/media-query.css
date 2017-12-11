@@ -1,0 +1,43 @@
+@media (max-width: 500px) {
+    .listTable {
+        width: 100%;
+    }
+
+    #played{
+        flex: 3.5;
+    }
+
+    #score{
+        flex: 2;
+    }
+
+    .tableFont{
+	    font-size: 12px;
+    }
+
+    #number{
+        flex: 1;
+    }
+
+    #icon-cell{
+        flex: 1;
+    }
+
+    #showInstructions{
+        display: block;
+        text-decoration: underline;
+        cursor: pointer;    	 
+    }
+
+    #title-text{
+	    font-size: 40px;
+    }
+
+    #winner{
+	    flex: 3.5;
+    }
+
+    #weekName{
+	    flex: 12;
+    }
+}

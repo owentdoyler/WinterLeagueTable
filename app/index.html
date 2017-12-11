@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Golfer Of The Year</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles/animations.css">
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/flexbox_table.css">
+  <link rel="stylesheet" href="styles/media-query.css">
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="scripts/javascript/scoreContent.js"></script>
+  <script src="scripts/javascript/image-switcher.js"></script>
+  <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+</head>
+<img src="" id="bg" alt="">
+<img src="" id="bg-next" alt="">
+<body ng-app="app" ng-controller="MyCtrl" >
+    <ul id="table"1>
+      <li id="header" class="listTableRow">
+        <ul id="headingRow1" class="listTableCellContainer tableRow headingColor">
+          <li class="listTableCell L-logo"><img src="assets/L-xs.png"></li>
+          <li class="listTableCell" id="title"><h1 style="text-align: center; ;" id="title-text">Winter League</h1></li>
+          <li class="listTableCell L-logo"><img src="assets/L-xs.png"></li>
+        </ul>
+        <!-- <ul class="listTableCellContainer tableRowBorder headingColor" id="headingRow2">
+          <li class="listTableCell" id="label-spacer">
+              <span id="next-event-container" class="hideable" ng-show="showTable">
+                    Your golfer of the year score is based on your best 5 scores from the major competitions played throughout the year.<br/>
+                    Your score for each competition is based on the difference between your score and the CSS of the course on the competition day.<br/>
+              </span>
+              <a ng-click="showDescription()" class="main-color" id="showInstructions">Read the Rules</a>    
+              <div class="topLink"><a href="schedule.html">See Full Golfer Of The Year schedule</a></div>    
+          </li>  
+        </ul> -->
+        <ul class="listTableCellContainer tableRow headingColor" id="headingRow3">
+          <li id="label-spacer" class="listTableCell"></li>
+          <li id="scoreTitle" class="listTableCell main-color">Score</li>
+          <li id="playedTitle" class="listTableCell main-color">Played</li>
+        </ul>
+      </li>
+      
+      <li class="listTableRow main-table" ng-repeat-start="team in teams" ng-click="teamRowClicked($index)">
+        <ul class="listTableCellContainerFirstRow tableRow"  ng-class="{'oddColor': !even($index) != 0, 'evenColor': even($index)}">
+          <li id="icon-cell" class="listTableCell">
+			      <span ng-if="teamShown == $index" class="fa fa-chevron-down" aria-hidden="true"></span>
+            <span ng-if="teamShown != $index" class="fa fa-chevron-right" aria-hidden="true"></span>
+		      </li>
+		      <li id="number" class="listTableCell">{{$index + 1}}</li>
+		      <li id="teamName" class="listTableCell">{{team.name}}</li>
+          <li id="score" class="listTableCell">{{team.score}}</li>
+          <li id="played" class="listTableCell">{{team.weeks.length}}</li>
+        </ul>
+      </li>
+      
+      <li class="hideable main-table subRow1" ng-if="teamShown == $parent.$index" ng-repeat-start="week in team.weeks" ng-click="weekRowClicked($index)">
+        <ul class="listTableCellContainer tableRow" ng-class="{'oddColor': !even($index), 'evenColor': even($index)}">
+          <li id="weekName" class="listTableCell">{{week.weekNumber}}</li>
+          <li id="weekScore" class="listTableCell">{{week.score}}</li>
+        </ul>
+      </li>
+      
+      <li class="hideable subRow2" ng-repeat-end  ng-if="weekShown == $index && teamShown == $parent.$index">
+        <ul class="listTableCellContainer individualCells">
+          <li  class="listTableCell individualScore evenColor"ng-repeat="player in week.individualScores" ng-if="weekShown == $parent.$index && teamShown == $parent.$parent.$parent.$index">{{player.playerName}}</li>
+        </ul>
+        
+        <ul class="listTableCellContainer individualCells">
+          <li class="listTableCell individualScore oddColor" ng-repeat="player in week.individualScores" ng-if="weekShown == $parent.$index && teamShown == $parent.$parent.$parent.$index">{{player.individualScore}}</li>
+        </ul>
+      </li>
+      <li ng-repeat-end></li>
+    </ul>
+</body>
+</html>

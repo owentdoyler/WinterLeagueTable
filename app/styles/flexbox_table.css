@@ -1,0 +1,27 @@
+ul{
+	list-style: none;
+	padding-left:0;
+}
+
+.listTableCellContainer{
+	display: flex;
+	box-sizing: border-box;
+	width: 100%;
+}
+
+.listTableCellContainerFirstRow{
+	display: flex;
+	box-sizing: border-box;
+	width: 100%;
+}
+
+.listTableCell{
+	padding-top: 5px;
+	padding-bottom: 5px;	
+	flex: 2;
+	text-align: center;
+}
+
+.listTableRow{
+	width: 100%;
+}

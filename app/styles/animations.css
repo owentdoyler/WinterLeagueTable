@@ -1,0 +1,25 @@
+
+/* ----------------------------------------   animations --------------------------------- */
+
+.hideable.ng-enter {
+  transition: 5s linear all;
+  max-height: 0px;
+}
+
+.hideable.ng-enter.ng-enter-active {
+  max-height: 500px;
+}
+
+.hideable.ng-leave {
+  transition: 0.5s linear all;
+  max-height: 50px;
+}
+
+/* The finishing CSS styles for the enter animation */
+.hideable.ng-leave.ng-leave-active {
+  max-height: 0px;
+}
+
+.hideable{
+  overflow: hidden;
+}
