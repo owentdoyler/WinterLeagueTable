@@ -1,5 +1,5 @@
 @media (max-width: 500px) {
-    .listTable {
+    #table {
         width: 100%;
     }
 
@@ -39,5 +39,11 @@
 
     #weekName{
 	    flex: 12;
+    }
+
+    .individualCells li{
+        border-right: 2px solid #000059;
+        max-width: 76px;
+        word-wrap: break-word;
     }
 }
