@@ -5,7 +5,7 @@
         public $weekHandicap;
         public $nettScore;
         
-        public function __construct($player, $score, $weekHandicap = 0){
+        public function __construct($player, $score, $weekHandicap){
             $this->player = $player;
             $this->score = $score;
             $this->weekHandicap = $weekHandicap;

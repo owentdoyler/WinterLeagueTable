@@ -28,12 +28,12 @@
 // backgroundSequence();
 
     var images = [
-    "1.jpg",
-    "2.jpg",
-    "3.jpg",
-    "4.jpg",
-    "5.jpg",
-	"6.jpg"];
+    "ice/ice-1.jpg",
+    "ice/ice-2.jpg",
+    "ice/ice-3.jpg",
+    "ice/ice-4.jpg",
+    "ice/ice-5.jpg",
+	"ice/ice-6.jpg"];
 
 	var base = "assets/backgrounds/";
 

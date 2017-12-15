@@ -62,11 +62,6 @@ body{
 	display: none;	 
 }
 
-#label-spacer{
-	font-size: 14px;
-	flex: 8;
-}
-
 .topLink{
 	margin-top: 10px;
 } */
@@ -74,7 +69,8 @@ body{
 /* ------------------------------------- Click and Hover Events-------------------------------------------------------- */
 
 .main-table .tableRow:hover {
-  box-shadow: 1px 1px 3px white;
+    padding: 0.5px;
+  	box-shadow: 1px 1px 3px white;
 	border: 2px solid white;	
 	cursor: pointer;
 }
@@ -117,6 +113,11 @@ body{
 
 #icon-cell{
 	flex: 0.5;
+}
+
+#icon-cell-2{
+	flex: 0.7;
+	border-right: 2px solid #000059; 
 }
 
 .L-logo{
@@ -183,10 +184,10 @@ body{
 
 #headingRow1{
 	position: relative;
-	z-index: 10;
 	overflow: hidden;
-  border-radius: 5px 5px 0px 0px;
-  border-bottom: 0px;
+	border-radius: 5px 5px 0px 0px;
+	border-bottom: 0px;
+    padding-top: 45px !important;
 }
 
 #headingRow2{
@@ -211,6 +212,10 @@ body{
 	border-width: 0 0 2px 2px;
 }
 
+#label-spacer{
+	font-size: 14px;
+	flex: 8;
+}
 
 /************* Image switcher ******************/
 
@@ -236,4 +241,12 @@ body{
 
 #bg-next{
 	z-index: -2;
+}
+
+/* Ice banner */
+
+#headingRow1::before{
+	content: url('../assets/images/ice-100.png');
+	position: absolute;
+    top: 0px;
 }

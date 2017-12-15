@@ -15,12 +15,13 @@
   <script src="bower_components/angular-animate/angular-animate.js"></script>
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <script src="scripts/javascript/scoreContent.js"></script>
+  <script src="scripts/javascript/snow.js"></script>
   <script src="scripts/javascript/image-switcher.js"></script>
   <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
 </head>
 <img src="" id="bg" alt="">
 <img src="" id="bg-next" alt="">
-<body ng-app="app" ng-controller="MyCtrl" >
+<body ng-app="app" ng-controller="MyCtrl">
     <ul id="table"1>
       <li id="header" class="listTableRow">
         <ul id="headingRow1" class="listTableCellContainer tableRow headingColor">
@@ -60,7 +61,11 @@
       
       <li class="hideable main-table subRow1" ng-if="teamShown == $parent.$index" ng-repeat-start="week in team.weeks" ng-click="weekRowClicked($index)">
         <ul class="listTableCellContainer tableRow" ng-class="{'oddColor': !even($index), 'evenColor': even($index)}">
-          <li id="weekName" class="listTableCell">{{week.weekNumber}}</li>
+          <li id="icon-cell-2" class="listTableCell">
+			      <span ng-if="weekShown == $index" class="fa fa-chevron-down" aria-hidden="true"></span>
+            <span ng-if="weekShown != $index" class="fa fa-chevron-right" aria-hidden="true"></span>
+		      </li>
+          <li id="weekName" class="listTableCell">Week {{week.weekNumber}}</li>
           <li id="weekScore" class="listTableCell">{{week.score}}</li>
         </ul>
       </li>
