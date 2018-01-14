@@ -78,7 +78,7 @@
     echo $json;
 
     function checkIfLowest($weekScore, $weekNumber){
-        if($weekScore < $lowestWeekScores[$weekNumber - 1]){
+        if($weekScore != 0 && $weekScore < $lowestWeekScores[$weekNumber - 1]){
             $lowestWeekScores[$weekNumber - 1] = $weekScore;
         }
     }
