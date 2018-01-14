@@ -6,10 +6,16 @@
 
     define("WEEKS_COUNTING", 2);
     define("SCORES_COUNTING", 2);
+    define("NUMBER_OF_WEEKS", 10);
 
     $latest_week = 0;
     $teams = array();
     $teamScores = array();
+    $lowestWeekScores = array();
+
+    for($i = 0; $i < NUMBER_OF_WEEKS; $i++){
+        array_push($lowestWeekScores, 0);
+    } 
 
     $week_query = "SELECT MAX(week_number) as last_week FROM winter_league_results";
     $team_query = "SELECT DISTINCT team_name FROM teams";
@@ -41,9 +47,26 @@
                     array_push($scores, new Score($row['player_name'], $row['score'], $row['week_handicap']));
                 }
             }
-            array_push($weekScores, new WeekScore($i, $scores, SCORES_COUNTING));
+            $weekScore = new WeekScore($i, $scores, SCORES_COUNTING);
+            if(sizeof($scores < SCORES_COUNTING)){
+                $weekScore->flag = true;
+            }
+            checkIfLowest($weekScore->weekScore(), $i);
+            array_push($weekScores, $weekScore);
         }
         array_push($teamScores, new TeamScore($team, $weekScores, WEEKS_COUNTING));
+    }
+
+    //go back through all the scores and add any supplementary scores for the weeks 
+    foreach($teamScores as $teamScore){
+        foreach($teamScore->weeks as $weeks){
+            $weekNumber = $week->weekNumber;
+            if($week->flag == true){ // check if the week is flagged for not having the minimum ammount of players
+                if($week->weekScore() < $lowestWeekScores[$weekNumber - 1]){ // check if the current score for the week is less than the minimum score
+                    $week->overrideScore = $lowestWeekScores[$weekNumber - 1];
+                }
+            }
+        }
     }
 
     $json = "[";
@@ -54,6 +77,11 @@
     $json .= ']';
     echo $json;
 
+    function checkIfLowest($weekScore, $weekNumber){
+        if($weekScore < $lowestWeekScores[$weekNumber - 1]){
+            $lowestWeekScores[$weekNumber - 1] = $weekScore;
+        }
+    }
 
     // if($players_query_response){
 	// 	while($row = mysqli_fetch_array($players_query_response)){

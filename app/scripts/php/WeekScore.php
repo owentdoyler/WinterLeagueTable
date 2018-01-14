@@ -3,11 +3,16 @@
         public $weekNumber;
         public $scores;
         public $amountCounting;
+        public $min_score;
+        public $flag; /// flag if number of scores didn't reach the minimum
+        public $overrideScore; // this will be populated with the mimimum score in the given week if the team hasnt fielded enough players
 
         public function __construct($weekNumber, $scores, $amountCounting){
             $this->weekNumber = $weekNumber;
             $this->scores = $scores;
             $this->amountCounting = $amountCounting;
+            $this->flag = false;
+            $this->overrideScore = 0;
             $this->sortScores();
         }
 
@@ -20,19 +25,24 @@
         }
 
         public function countingScores(){
-            return array_slice($this->scores, 0, $this->amountCounting);
+            if(sizeof($this->scores) > $this->amountCounting){
+                return array_slice($this->scores, 0, $this->amountCounting);
+            }
+            else return $this->scores;     
         }
 
         public function weekScore(){
-             $total = 0;
-            // for($i = 0; $i < $this->amountCounting; $i++){
-            //     $total += $this->scores[$i]->score;
-            // }
-            // return $total;
-            foreach($this->countingScores() as $countingScore){
-                $total += $countingScore->nettScore;
+
+            if($this->overrideScore > 0){
+                return $this->overrideScore;
             }
-            return $total;
+            else{
+                $total = 0;
+                foreach($this->countingScores() as $countingScore){
+                    $total += $countingScore->nettScore;
+                }
+                return $total;
+            }
         }
 
         public function toJson(){
