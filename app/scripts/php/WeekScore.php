@@ -21,9 +21,9 @@
         private function fillSupplementScores(){
             $scores_amount = sizeof($this->scores);
             if($scores_amount < $this->amountCounting){
-                while($score_amount <=  $this->amountCounting){
-                    array_push($this->scores, new Score("Supplementary"), $this->min_score, 0);
-                    $score_amount++;
+                while($scores_amount < $this->amountCounting){
+                    array_push($this->scores, new Score("Supplementary", $this->min_score, 0));
+                    $scores_amount++;
                 }
             }
         }

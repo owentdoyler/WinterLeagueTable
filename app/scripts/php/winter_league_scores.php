@@ -40,7 +40,7 @@
         $weekScores = array();
         for($i = 1; $i <= $latest_week; $i++){
             $min_score = 0;
-            $lowest_week_score_query = "SELECT MIN(score) as min_score FROM winter_league_results WHERE week_number = {$i}";
+            $lowest_week_score_query = "SELECT MIN(score) as min_score FROM winter_league_results WHERE week_number = {$i} AND score != 0";
             $lowest_week_score_query_response = @mysqli_query($database, $lowest_week_score_query);
             if($lowest_week_score_query_response){
                 $row = mysqli_fetch_array($lowest_week_score_query_response);
