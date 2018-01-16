@@ -6,7 +6,7 @@ define("PLAYER_NAME", 1);
 define("SCORE", 2);
 define("HANDICAP", 3);
 
-$file = fopen("../../../data/test/presidents__prize_edited.csv","r");
+$file = fopen("../../../data/test/test.csv","r");
 
 $insert_data = "";
 while(! feof($file))
@@ -16,7 +16,6 @@ while(! feof($file))
     $player_name = $score_data[PLAYER_NAME];
     $team_check_query = "SELECT * FROM teams where player_name = '{$player_name}'";
     $team_check_query_response = @mysqli_query($database, $team_check_query);
-    
     if($team_check_query_response && $team_check_query_response->num_rows > 0){
         $handicap_query = "SELECT * FROM winter_handicaps where player_name = '{$player_name}'";
         $handicap_query_response = @mysqli_query($database, $handicap_query);
