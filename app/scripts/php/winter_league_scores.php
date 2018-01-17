@@ -13,7 +13,7 @@
     $teamScores = array();
 
     $week_query = "SELECT MAX(week_number) as last_week FROM winter_league_results";
-    $team_query = "SELECT DISTINCT team_name FROM teams";
+    $team_query = "SELECT DISTINCT team_name FROM winter_league_teams";
 
     $week_query_response = @mysqli_query($database, $week_query);
     
@@ -43,7 +43,7 @@
             } 
 
             $scores = array();
-            $week_scores_query = "SELECT * from winter_league_results a INNER JOIN teams b ON a.player_name = b.player_name WHERE b.team_name = '{$team}' AND a.week_number = {$i}";
+            $week_scores_query = "SELECT * from winter_league_results a INNER JOIN winter_league_teams b ON a.player_name = b.player_name WHERE b.team_name = '{$team}' AND a.week_number = {$i}";
             $week_scores_query_response = @mysqli_query($database, $week_scores_query);
             if($week_scores_query_response){
                 while($row = mysqli_fetch_array($week_scores_query_response)){

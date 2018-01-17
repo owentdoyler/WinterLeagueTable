@@ -14,11 +14,11 @@ while(! feof($file))
     
     $score_data = fgetcsv($file);
     $player_name = $score_data[PLAYER_NAME];
-    $team_check_query = "SELECT * FROM teams where player_name = '{$player_name}'";
+    $team_check_query = "SELECT * FROM winter_leagueteams where player_name = '{$player_name}'";
     $team_check_query_response = @mysqli_query($database, $team_check_query);
     
     if($team_check_query_response && $team_check_query_response->num_rows > 0){
-        $handicap_query = "SELECT * FROM winter_handicaps where player_name = '{$player_name}'";
+        $handicap_query = "SELECT * FROM winter_league_handicaps where player_name = '{$player_name}'";
         $handicap_query_response = @mysqli_query($database, $handicap_query);
         $handicap = 0; 
         if($handicap_query_response && $handicap_query_response->num_rows > 0){
