@@ -42,7 +42,7 @@
         <ul class="listTableCellContainer tableRow headingColor" id="headingRow3">
           <li id="label-spacer" class="listTableCell"></li>
           <li id="scoreTitle" class="listTableCell main-color">Score</li>
-          <li id="playedTitle" class="listTableCell main-color">Played</li>
+          <!-- <li id="playedTitle" class="listTableCell main-color">Played</li> -->
         </ul>
       </li>
       
@@ -55,7 +55,7 @@
 		      <li id="number" class="listTableCell">{{$index + 1}}</li>
 		      <li id="teamName" class="listTableCell">{{team.name}}</li>
           <li id="score" class="listTableCell">{{team.score}}</li>
-          <li id="played" class="listTableCell">{{team.weeks.length}}</li>
+          <!-- <li id="played" class="listTableCell"></li> -->
         </ul>
       </li>
       
@@ -71,7 +71,7 @@
       </li>
       
       <li class="hideable subRow2" ng-repeat-end  ng-if="weekShown == $index && teamShown == $parent.$index">
-        <ul class="listTableCellContainer individualCells">
+        <ul class="listTableCellContainer individualCells playerName">
           <li  class="listTableCell individualScore evenColor"ng-repeat="player in week.individualScores" ng-if="weekShown == $parent.$index && teamShown == $parent.$parent.$parent.$index">{{player.playerName}}</li>
         </ul>
         
