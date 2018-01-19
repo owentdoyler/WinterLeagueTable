@@ -212,6 +212,19 @@ body{
 	border-width: 0 0 2px 2px;
 }
 
+.subRow1 .individualCells{
+	border-radius: 5px;
+	border-style: solid;
+	border-color: #000059;
+	border-width: 2px 0 2px 2px;
+}
+
+.subRow1 .individualCells li{
+	word-spacing: 200px;
+	padding: 1px;
+	color: #ceb777;
+}
+
 #label-spacer{
 	font-size: 14px;
 	flex: 8;

@@ -60,7 +60,7 @@
             }
             $individualScores = substr($individualScores, 0, -1);
             $json .= $individualScores;
-            $json .= "]} ";
+            $json .= "]}";
             
             return $json;
         }

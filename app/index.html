@@ -46,7 +46,13 @@
           <li id="score" class="listTableCell">{{team.score}}</li>
         </ul>
       </li>
-      
+
+      <li class="hideable main-table subRow1" ng-if="teamShown == $index">
+        <ul class="listTableCellContainer individualCells" ng-class="{'oddColor': !even($index), 'evenColor': even($index)}">
+          <li  class="listTableCell individualScore evenColor" ng-repeat="player in team.players" >{{player}}</li>
+        </ul>
+      </li>
+
       <li class="hideable main-table subRow1" ng-if="teamShown == $parent.$index" ng-repeat-start="week in team.weeks" ng-click="weekRowClicked($index)">
         <ul class="listTableCellContainer tableRow" ng-class="{'oddColor': !even($index), 'evenColor': even($index)}">
           <li id="icon-cell-2" class="listTableCell">

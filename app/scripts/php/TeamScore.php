@@ -3,11 +3,13 @@
         public $teamName;
         public $weeks = array();
         public $amountCounting;
+        public $players;
         
-        public function __construct($teamName, $weeks, $amountCounting){
+        public function __construct($teamName, $weeks, $amountCounting, $players){
             $this->teamName = $teamName;
             $this->weeks = $weeks;
             $this->amountCounting = $amountCounting;
+            $this->players = $players;
             $this->sortScores();
         }
 
@@ -43,8 +45,13 @@
             }
             $weekScores = substr($weekScores, 0, -1);
             $json .= $weekScores;
-            $json .= "]} ";
-            return $json;
+            $json .= "]";
+            $json .= ", \"players\": [";
+            foreach($this->players as $player){
+                $json .= "\"{$player}\",";
+            }
+            $json = substr($json, 0, -1);
+            return $json .= "]}";
         }
     }
 ?>

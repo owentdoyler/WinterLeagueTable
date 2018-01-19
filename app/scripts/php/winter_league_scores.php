@@ -33,6 +33,9 @@
 
     foreach($teams as $team){
         $weekScores = array();
+
+        $teamPlayers = getTeamPlayers($team, $database);
+
         for($i = 1; $i <= $latest_week; $i++){
             $min_score = 0;
             $lowest_week_score_query = "SELECT MIN(score) as min_score FROM winter_league_results WHERE week_number = {$i} AND score != 0";
@@ -53,7 +56,7 @@
             $weekScore = new WeekScore($i, $scores, SCORES_COUNTING, $min_score);
             array_push($weekScores, $weekScore);
         }
-        array_push($teamScores, new TeamScore($team, $weekScores, WEEKS_COUNTING));
+        array_push($teamScores, new TeamScore($team, $weekScores, WEEKS_COUNTING, $teamPlayers));
     }
 
     $json = "[";
@@ -62,5 +65,17 @@
     }
     $json = substr($json, 0, -1);
     $json .= ']';
-    echo $json; 
+    echo $json;
+
+    function getTeamPlayers($team_name, $database){
+        $players = array();
+        $players_query = "SELECT * FROM winter_league_teams WHERE team_name = '{$team_name}'";
+        $players_query_response = @mysqli_query($database, $players_query);
+        if($players_query_response){
+            while($row = mysqli_fetch_array($players_query_response)){
+                array_push($players, str_replace(" O ", " O'", $row['player_name']));        
+            }
+        }
+        return $players;
+    }
 ?>
