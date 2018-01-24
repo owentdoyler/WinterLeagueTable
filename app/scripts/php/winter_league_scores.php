@@ -23,17 +23,14 @@
     } 
 
     $team_query_response = @mysqli_query($database, $team_query);
-
     if($team_query_response){
         while($row = mysqli_fetch_array($team_query_response)){
-            $teams[] = $row['team_name'];
+            array_push($teams ,$row['team_name']);
         }
     }
 
-
     foreach($teams as $team){
         $weekScores = array();
-
         $teamPlayers = getTeamPlayers($team, $database);
 
         for($i = 1; $i <= $latest_week; $i++){
