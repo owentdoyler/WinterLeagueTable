@@ -55,7 +55,7 @@
         }
         array_push($teamScores, new TeamScore($team, $weekScores, WEEKS_COUNTING, $teamPlayers));
     }
-
+    $teamScores = sortTeamScores($teamScores);    
     $json = "[";
     foreach($teamScores as $teamScore){
         $json .= ($teamScore->toJson() . ",");
@@ -74,5 +74,14 @@
             }
         }
         return $players;
+    }
+
+    function sortTeamScores($teamScores){
+        usort($teamScores, function($a, $b){
+            if($a->teamScore() < $b->teamScore()) return 1;
+            elseif ($a->teamScore() > $b->teamScore()) return -1;
+            else return 0;
+        });
+        return $teamScores;
     }
 ?>

@@ -6,17 +6,15 @@ define("PLAYER_NAME", 1);
 define("SCORE", 2);
 define("HANDICAP", 3);
 
-$file = fopen("../../../data/test/presidents__prize_edited.csv","r");
+$file = fopen("../../../data/scores/week1/week_1.csv","r");
 
 $insert_data = "";
 while(! feof($file))
 {
-    
     $score_data = fgetcsv($file);
     $player_name = $score_data[PLAYER_NAME];
-    $team_check_query = "SELECT * FROM winter_leagueteams where player_name = '{$player_name}'";
+    $team_check_query = "SELECT * FROM winter_league_teams where player_name = '{$player_name}'";
     $team_check_query_response = @mysqli_query($database, $team_check_query);
-    
     if($team_check_query_response && $team_check_query_response->num_rows > 0){
         $handicap_query = "SELECT * FROM winter_league_handicaps where player_name = '{$player_name}'";
         $handicap_query_response = @mysqli_query($database, $handicap_query);
@@ -34,6 +32,7 @@ $insert_data = substr($insert_data, 0, -1);
 $insert_data .= ";";
 
 $insert_query = "INSERT INTO winter_league_results (player_name, week_number, week_handicap, score) VALUES " . $insert_data;
+echo $insert_query;
 echo $insert_data;
 $insert_query_result = @mysqli_query($database, $insert_query);
 echo $insert_query_result->error;
