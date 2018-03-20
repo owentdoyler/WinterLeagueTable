@@ -4,7 +4,7 @@
     require("TeamScore.php");
     require("WeekScore.php");
 
-    define("WEEKS_COUNTING", 2);
+    define("WEEKS_COUNTING", 5);
     define("SCORES_COUNTING", 2);
     define("NUMBER_OF_WEEKS", 10);
 
@@ -47,7 +47,7 @@
             $week_scores_query_response = @mysqli_query($database, $week_scores_query);
             if($week_scores_query_response){
                 while($row = mysqli_fetch_array($week_scores_query_response)){
-                    array_push($scores, new Score($row['player_name'], $row['score'], $row['week_handicap']));
+                    array_push($scores, new Score($row['player_name'], $row['score'], $row['week_handicap'], $row['week_number']));
                 }
             }
             $weekScore = new WeekScore($i, $scores, SCORES_COUNTING, $min_score);

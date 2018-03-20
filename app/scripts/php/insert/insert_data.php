@@ -6,7 +6,7 @@ define("PLAYER_NAME", 1);
 define("SCORE", 2);
 define("HANDICAP", 3);
 
-$file = fopen("../../../data/scores/week1/week_1.csv","r");
+$file = fopen("../../../data/scores/week6/week6.csv","r");
 
 $insert_data = "";
 while(! feof($file))

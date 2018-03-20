@@ -18,7 +18,7 @@
             $scores_amount = sizeof($this->scores);
             if($scores_amount < $this->amountCounting){
                 while($scores_amount < $this->amountCounting){
-                    array_push($this->scores, new Score("Supplementary", $this->min_score, 0));
+                    array_push($this->scores, new Score("Supplementary", $this->min_score, 0, $this->weekNumber));
                     $scores_amount++;
                 }
             }
@@ -26,8 +26,8 @@
 
         private function sortScores(){
             usort($this->scores, function($a, $b){
-                if($a->score < $b->score) return 1;
-                elseif ($a->score > $b->score) return -1;
+                if($a->nettScore < $b->nettScore) return 1;
+                elseif ($a->nettScore > $b->nettScore) return -1;
                 else return 0;
             });
         }
