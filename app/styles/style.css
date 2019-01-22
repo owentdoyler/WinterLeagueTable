@@ -274,3 +274,7 @@ body{
 	position: absolute;
     top: 0px;
 }
+
+.highlight-color{
+	color: #ceb777 !important
+}

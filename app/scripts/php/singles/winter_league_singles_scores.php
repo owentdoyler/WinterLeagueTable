@@ -46,7 +46,7 @@
             $scores_query_response = @mysqli_query($database, $scores_query);
             if($scores_query_response){
                 while($row = mysqli_fetch_array($scores_query_response)){
-                    array_push($scores, new Score($row['player_name'], $row['score'], $row['week_handicap'],  $row['week_number']));
+                    array_push($scores, new Score($row['player_name'], $row['score'],  $row['week_number']));
                 }
             }
             // $weekScore = new WeekScore($i, $scores, SCORES_COUNTING, $min_score);

@@ -26,8 +26,8 @@
 
         private function sortScores(){
             usort($this->scores, function($a, $b){
-                if($a->nettScore < $b->nettScore) return 1;
-                elseif ($a->nettScore > $b->nettScore) return -1;
+                if($a->score < $b->score) return 1;
+                elseif ($a->score > $b->score) return -1;
                 else return 0;
             });
         }
@@ -43,7 +43,7 @@
 
                 $total = 0;
                 foreach($this->countingScores() as $countingScore){
-                    $total += $countingScore->nettScore;
+                    $total += $countingScore->score;
                 }
                 return $total;
         }

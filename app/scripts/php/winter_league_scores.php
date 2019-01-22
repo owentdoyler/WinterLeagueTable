@@ -47,7 +47,7 @@
             $week_scores_query_response = @mysqli_query($database, $week_scores_query);
             if($week_scores_query_response){
                 while($row = mysqli_fetch_array($week_scores_query_response)){
-                    array_push($scores, new Score($row['player_name'], $row['score'], $row['week_handicap'], $row['week_number']));
+                    array_push($scores, new Score($row['player_name'], $row['score'], $row['week_number']));
                 }
             }
             $weekScore = new WeekScore($i, $scores, SCORES_COUNTING, $min_score);
@@ -56,12 +56,13 @@
         array_push($teamScores, new TeamScore($team, $weekScores, WEEKS_COUNTING, $teamPlayers));
     }
     $teamScores = sortTeamScores($teamScores);    
-    $json = "[";
+    $json = "{\"scores\": [";
     foreach($teamScores as $teamScore){
         $json .= ($teamScore->toJson() . ",");
     }
+    $updateTime = getUpdateTime($database);
     $json = substr($json, 0, -1);
-    $json .= ']';
+    $json .= "], \"metadata\": { \"latestWeek\": \"{$latest_week}\", \"updateTime\": \"{$updateTime}\"}}";
     echo $json;
 
     function getTeamPlayers($team_name, $database){
@@ -83,5 +84,17 @@
             else return 0;
         });
         return $teamScores;
+    }
+
+    function getUpdateTime($database){
+        $query = "SELECT update_time FROM winter_league_results ORDER BY update_time DESC LIMIT 1";
+        $response = @mysqli_query($database, $query);
+        if ($response) {
+            $row = mysqli_fetch_assoc($response);
+            $timestamp =  $row['update_time'];
+            $unixTime = strtotime($timestamp);
+            return date("M-d - H:i", $unixTime);
+        }
+        return null;
     }
 ?>

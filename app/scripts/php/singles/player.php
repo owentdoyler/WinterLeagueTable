@@ -29,7 +29,7 @@
         public function score(){
             $total = 0;
             foreach($this->countingScores() as $countingScore){
-                $total += $countingScore->nettScore;
+                $total += $countingScore->score;
             }
             return $total;
         }
