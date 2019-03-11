@@ -1,63 +1,36 @@
-// var bgImageArray = [
-//     "1.jpg",
-//     "2.jpg",
-//     "3.jpg",
-//     "4.jpg",
-//     "5.jpg",
-//     "6.jpg"
-// ],
+var images = [
+  "ice/ice-1.jpg",
+  "ice/ice-2.jpg",
+  "ice/ice-3.jpg",
+  "ice/ice-4.jpg",
+  "ice/ice-5.jpg",
+  "ice/ice-6.jpg"
+];
 
-// base = "assets/backgrounds/",
-// secs = 10;
-// bgImageArray.forEach(function(img){
-//     new Image().src = base + img; 
-//     // caches images, avoiding white flash between background replacements
-// });
+var base = "assets/backgrounds/";
 
-// function backgroundSequence() {
-// 	window.clearTimeout();
-// 	var k = 0;
-// 	for (i = 0; i < bgImageArray.length; i++) {
-// 		setTimeout(function(){ 
-// 			document.documentElement.style.background = "url(" + base + bgImageArray[k] + ") no-repeat center center fixed";
-// 			document.documentElement.style.backgroundSize ="cover";
-// 		if ((k + 1) === bgImageArray.length) { setTimeout(function() { backgroundSequence() }, (secs * 1000))} else { k++; }			
-// 		}, (secs * 1000) * i)	
-// 	}
-// }
-// backgroundSequence();
+images.forEach(function(img) {
+  new Image().src = base + img;
+  // caches images, avoiding white flash between background replacements
+});
 
-    var images = [
-    "ice/ice-1.jpg",
-    "ice/ice-2.jpg",
-    "ice/ice-3.jpg",
-    "ice/ice-4.jpg",
-    "ice/ice-5.jpg",
-	"ice/ice-6.jpg"];
+window.onload = function() {
+  var i = 0;
+  var secs = 10;
 
-	var base = "assets/backgrounds/";
-
-	images.forEach(function(img){
-    	new Image().src = base + img; 
-    	// caches images, avoiding white flash between background replacements
-	});
-
-
-window.onload = function () {
-    var i = 0;
-	var secs = 10;	
-
-    $('#bg').attr("src", base + images[i]);
-    setInterval(function () {
-        if (++i === images.length) {
-            i = 0;
-        }
-        console.log(i);
-        $('#bg-next').attr("src", base + images[i]);
-        // transition animation: 2s
-        $('#bg').fadeOut(3000, function () {
-            $('#bg').attr("src", base + images[i]).show();
-        });
-        // slide change: 3s
-    }, 10000);
+  $("#bg").attr("src", base + images[i]);
+  setInterval(function() {
+    if (++i === images.length) {
+      i = 0;
+    }
+    console.log(i);
+    $("#bg-next").attr("src", base + images[i]);
+    // transition animation: 2s
+    $("#bg").fadeOut(3000, function() {
+      $("#bg")
+        .attr("src", base + images[i])
+        .show();
+    });
+    // slide change: 3s
+  }, 10000);
 };

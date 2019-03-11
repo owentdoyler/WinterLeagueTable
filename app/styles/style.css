@@ -1,47 +1,47 @@
 /* ------------------------------------- Main Styles -------------------------------------------------------- */
-@import url('https://fonts.googleapis.com/css?family=Ubuntu:700');
-@import url('https://fonts.googleapis.com/css?family=Bilbo');
+@import url("https://fonts.googleapis.com/css?family=Ubuntu:700");
+@import url("https://fonts.googleapis.com/css?family=Bilbo");
 
-html{
-	/* background: url("../assets/backgrounds/1.jpg") center fixed; */
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	/* overflow: -moz-scrollbars-vertical;  */
-	overflow-y: scroll;
-	color: white;
+html {
+  /* background: url("../assets/backgrounds/1.jpg") center fixed; */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  /* overflow: -moz-scrollbars-vertical;  */
+  overflow-y: scroll;
+  color: white;
 }
 
-#background{
-	background-image: url('../assets/backgrounds/2.jpg');
-	background-repeat: no-repeat;
-	background-size: cover;
+#background {
+  background-image: url("../assets/backgrounds/2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-body{
+body {
   /*background: url("../assets/7.jpg");*/
   background-repeat: no-repeat;
   background-attachment: fixed;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: "Ubuntu", sans-serif;
 }
 
-#table{
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 50px;
-	width: 60%;
+#table {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  width: 60%;
 }
 
-.subRow1{
-	width: 80%;
-	margin-left: auto;
-	margin-right: auto;
+.subRow1 {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.subRow2{
-	width: 78.5%;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: -2px;
+.subRow2 {
+  width: 78.5%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -2px;
 }
 /* #next-event-container{
 	padding: 2px 10px 2px 10px;
@@ -63,192 +63,192 @@ body{
 }
  */
 
- a:-webkit-any-link { color: -webkit-link !important; }
-
-.topLink a{
-	text-decoration: none;
-	color: #ceb777 !important;
-	margin-top: 10px;
+a:-webkit-any-link {
+  color: -webkit-link !important;
 }
 
-.topLink a:hover{
-	color: white !important;
+.topLink a {
+  text-decoration: none;
+  color: #ceb777 !important;
+  margin-top: 10px;
+}
+
+.topLink a:hover {
+  color: white !important;
 }
 
 /* ------------------------------------- Click and Hover Events-------------------------------------------------------- */
 
 .main-table .tableRow:hover {
-    padding: 0.5px;
-  	box-shadow: 1px 1px 3px white;
-	border: 2px solid white;	
-	cursor: pointer;
+  padding: 0.5px;
+  box-shadow: 1px 1px 3px white;
+  border: 2px solid white;
+  cursor: pointer;
 }
 
 /* ------------------------------------- Borders and Row spacing-------------------------------------------------------- */
 
-
-.tableRow{
-  border-radius: 5px; 
+.tableRow {
+  border-radius: 5px;
   border: 2px solid #000059;
   margin-top: 2px;
   margin-bottom: 2px;
 }
 
-#header .tableRow{
-	margin: 0;
+#header .tableRow {
+  margin: 0;
 }
 
 /* ------------------------------------- Row Colors-------------------------------------------------------- */
 
-.evenColor{
+.evenColor {
   background-color: rgba(38, 38, 127, 0.9);
 }
 
-.oddColor{
-	background-color: rgba(	90,	90,	255, 0.9);
+.oddColor {
+  background-color: rgba(90, 90, 255, 0.9);
 }
 
-.headingColor{
-	background-color: rgb(38, 38, 127);
+.headingColor {
+  background-color: rgb(38, 38, 127);
 }
 
 /*********** Individual cell styles **************/
 
-#teamName{
+#teamName {
   padding-left: 10px;
-	text-align: left;
-	flex: 7;
+  text-align: left;
+  flex: 7;
 }
 
-#icon-cell{
-	flex: 0.5;
+#icon-cell {
+  flex: 0.5;
 }
 
-#icon-cell-2{
-	flex: 0.7;
-	border-right: 2px solid #000059; 
+#icon-cell-2 {
+  flex: 0.7;
+  border-right: 2px solid #000059;
 }
 
-.L-logo{
-	flex: 2;
+.L-logo {
+  flex: 2;
 }
 
-#number{
-	border-left: 2px solid #000059;
-	border-right: 2px solid #000059;
-	flex: 0.5;
+#number {
+  border-left: 2px solid #000059;
+  border-right: 2px solid #000059;
+  flex: 0.5;
 }
 
-#title{
-	margin: auto;
-	flex: 6;
+#title {
+  margin: auto;
+  flex: 6;
 }
 
-#title-text{
-	margin: 0px;
-	padding: 0px;
-	font-size: 50px;
-	font-family: 'Bilbo', cursive;
+#title-text {
+  margin: 0px;
+  padding: 0px;
+  font-size: 50px;
+  font-family: "Bilbo", cursive;
 }
 
-#score{
-	border-left: 2px solid #000059;
-	/* border-right: 2px solid #000059; */
-	padding-left: 10px;
-	padding-right: 10px;
-	flex: 1;
+#score {
+  border-left: 2px solid #000059;
+  /* border-right: 2px solid #000059; */
+  padding-left: 10px;
+  padding-right: 10px;
+  flex: 1;
 }
 
-
-#scoreTitle{
-	padding-left: 10px;
-	padding-right: 10px;
-	flex: 1;
+#scoreTitle {
+  padding-left: 10px;
+  padding-right: 10px;
+  flex: 1;
 }
 
-#weekName{
-	padding-left: 20px;
-	text-align: left;
-	flex: 10;
+#weekName {
+  padding-left: 20px;
+  text-align: left;
+  flex: 10;
 }
 
-#played{
-	margin-top:auto;
-	margin-bottom: auto;
-	color: white;
-	flex: 1.5;
+#played {
+  margin-top: auto;
+  margin-bottom: auto;
+  color: white;
+  flex: 1.5;
 }
 
-#playedTitle{
-	margin-top:auto;
-	margin-bottom: auto;
-	color: white;
-	flex: 1.5;
+#playedTitle {
+  margin-top: auto;
+  margin-bottom: auto;
+  color: white;
+  flex: 1.5;
 }
 
-#weekScore{
-	border-left: 2px solid #000059; 
+#weekScore {
+  border-left: 2px solid #000059;
 }
 
-
-#headingRow1{
-	position: relative;
-	overflow: hidden;
-	border-radius: 5px 5px 0px 0px;
-	border-bottom: 0px;
-    padding-top: 55px !important;
+#headingRow1 {
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px 5px 0px 0px;
+  border-bottom: 0px;
+  padding-top: 55px !important;
 }
 
-#headingRow2{
-	border-radius: 0px;
-	border-top: 0px;
-	border-left: 2px solid #000059;
-	border-right: 2px solid #000059;
-	font-size: 18px;
+#headingRow2 {
+  border-radius: 0px;
+  border-top: 0px;
+  border-left: 2px solid #000059;
+  border-right: 2px solid #000059;
+  font-size: 18px;
 }
 
-#headingRow3{
-	border-radius: 0px 0px 5px 5px;
-	border-top: 0px;	
-	font-size: 18px;
+#headingRow3 {
+  border-radius: 0px 0px 5px 5px;
+  border-top: 0px;
+  font-size: 18px;
 }
 
-.individualCells li{
-	border-right: 2px solid #000059;
+.individualCells li {
+  border-right: 2px solid #000059;
 }
 
-.individualCells{
-	border-style: solid;
-	border-color: #000059;
-	border-width: 0 0 2px 2px;
+.individualCells {
+  border-style: solid;
+  border-color: #000059;
+  border-width: 0 0 2px 2px;
 }
 
-.subRow1 .individualCells{
-	border-radius: 5px;
-	border-style: solid;
-	border-color: #000059;
-	border-width: 2px 0 2px 2px;
+.subRow1 .individualCells {
+  border-radius: 5px;
+  border-style: solid;
+  border-color: #000059;
+  border-width: 2px 0 2px 2px;
 }
 
-.subRow1 .individualCells li{
-	word-spacing: 200px;
-	padding: 1px;
-	color: #ceb777;
+.subRow1 .individualCells li {
+  word-spacing: 200px;
+  padding: 1px;
+  color: #ceb777;
 }
 
-#label-spacer{
-	font-size: 14px;
-	flex: 8;
+#label-spacer {
+  font-size: 14px;
+  flex: 8;
 }
 
 /************* Image switcher ******************/
 
-#bg, #bg-next {
-  position: fixed; 
-  top: 0; 
-  left: 0;  
+#bg,
+#bg-next {
+  position: fixed;
+  top: 0;
+  left: 0;
   min-width: 100%;
-	min-height: 100%;
+  min-height: 100%;
 }
 
 /* canvas {
@@ -259,22 +259,22 @@ body{
     position: fixed !important;
 } */
 
-#bg{
-	z-index: -1;
+#bg {
+  z-index: -1;
 }
 
-#bg-next{
-	z-index: -2;
+#bg-next {
+  z-index: -2;
 }
 
 /* Ice banner */
 
-#headingRow1::before{
-	content: url('../assets/images/ice-100.png');
-	position: absolute;
-    top: 0px;
+#headingRow1::before {
+  content: url("../assets/images/ice-100.png");
+  position: absolute;
+  top: 0px;
 }
 
-.highlight-color{
-	color: #ceb777 !important
+.highlight-color {
+  color: #ceb777 !important;
 }
