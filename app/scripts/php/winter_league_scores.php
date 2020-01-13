@@ -6,7 +6,7 @@
 
     define("WEEKS_COUNTING", 5);
     define("SCORES_COUNTING", 2);
-    define("NUMBER_OF_WEEKS", 10);
+    define("NUMBER_OF_WEEKS", 9);
 
     $latest_week = 0;
     $teams = array();

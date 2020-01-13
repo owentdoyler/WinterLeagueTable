@@ -6,7 +6,7 @@ define("PLAYER_NAME", 1);
 define("SCORE", 2);
 define("HANDICAP", 3);
 
-$file = fopen("../../../data/scores/2019/week8/week8.csv","r");
+$file = fopen("../../../data/scores/2020/week1/week1-scores.csv","r");
 
 $insert_data = "";
 $weekNumber = "";
