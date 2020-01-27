@@ -42,16 +42,18 @@
                 $min_score = $row['min_score']; 
             } 
 
-            $scores = array();
-            $week_scores_query = "SELECT * from winter_league_results a INNER JOIN winter_league_teams b ON a.player_name = b.player_name WHERE b.team_name = '{$team}' AND a.week_number = {$i}";
-            $week_scores_query_response = @mysqli_query($database, $week_scores_query);
-            if($week_scores_query_response){
-                while($row = mysqli_fetch_array($week_scores_query_response)){
-                    array_push($scores, new Score($row['player_name'], $row['score'], $row['week_number']));
+            if ($min_score != null) {
+                $scores = array();
+                $week_scores_query = "SELECT * from winter_league_results a INNER JOIN winter_league_teams b ON a.player_name = b.player_name WHERE b.team_name = '{$team}' AND a.week_number = {$i}";
+                $week_scores_query_response = @mysqli_query($database, $week_scores_query);
+                if($week_scores_query_response){
+                    while($row = mysqli_fetch_array($week_scores_query_response)){
+                        array_push($scores, new Score($row['player_name'], $row['score'], $row['week_number']));
+                    }
                 }
+                $weekScore = new WeekScore($i, $scores, SCORES_COUNTING, $min_score);
+                array_push($weekScores, $weekScore);
             }
-            $weekScore = new WeekScore($i, $scores, SCORES_COUNTING, $min_score);
-            array_push($weekScores, $weekScore);
         }
         array_push($teamScores, new TeamScore($team, $weekScores, WEEKS_COUNTING, $teamPlayers));
     }
