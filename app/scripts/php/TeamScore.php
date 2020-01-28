@@ -34,9 +34,9 @@
         }
 
         public function toJson(){
-            $json = "{\"name\": \"{$this->teamName}\", \"score\": ";
+            $json = "{\"rowData\": {\"name\": \"{$this->teamName}\", \"score\": ";
             $json .= $this->teamScore();
-            $json .= ", \"weeks\":[ ";
+            $json .= "}, \"subRows\":[ ";
             
             $weekScores = "";
             foreach($this->weeks as $week){

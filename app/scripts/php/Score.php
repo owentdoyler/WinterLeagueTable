@@ -11,7 +11,7 @@
         }    
         
         public function toJson(){ 
-            return "{\"playerName\": \"{$this->player}\", \"individualScore\": \"{$this->score}\", \"weekNumber\": \"{$this->weekNumber}\"}";
+            return "{\"rowData\": {\"playerName\": \"{$this->player}\", \"individualScore\": \"{$this->score}\", \"weekNumber\": \"{$this->weekNumber}\"}}";
         }
     }
 ?>

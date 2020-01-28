@@ -49,18 +49,35 @@
         }
 
         public function toJson(){
-            $json = "{\"weekNumber\": \"{$this->weekNumber}\", \"score\": ";
+            $json = "{\"rowData\": {\"weekNumber\": \"Week {$this->weekNumber}\", \"score\": ";
             $json .= $this->weekScore();
-            $json.= ", \"individualScores\": [ ";
+            $json .= "}, \"subRows\": [{\"rowData\": { \"columnData\": [ ";
             
-            $individualScores = "";
+            // $individualScores = "";
+            $individualPlayers = array();
+            $individualPlayerScores = array();
             foreach($this->scores as $score){
-                $individualScores .= $score->toJson();
-                $individualScores .= ",";
+                array_push($individualPlayers, $score->player);
+                array_push($individualPlayerScores, $score->score);
+                // $individualScores .= $score->toJson();
+                // $individualScores .= ",";
             }
-            $individualScores = substr($individualScores, 0, -1);
-            $json .= $individualScores;
-            $json .= "]}";
+
+            foreach ($individualPlayers as $player) {
+                $json .= "\"{$player}\",";
+            }
+            $json = substr($json, 0, -1);
+            $json .= "]}}, {\"rowData\": { \"columnData\": [ ";
+
+            foreach ($individualPlayerScores as $playerScore) {
+                $json .= "\"{$playerScore}\",";
+            }
+            $json = substr($json, 0, -1);
+            $json .= "]}}]}";
+
+            // $individualScores = substr($individualScores, 0, -1);
+            // $json .= $individualScores;
+            // $json .= "}}]";
             
             return $json;
         }
