@@ -53,5 +53,15 @@
             $json = substr($json, 0, -1);
             return $json .= "]}";
         }
+
+        // Teams for mongo database
+        // public function toJson(){
+        //     $json = "{\"name\": \"{$this->teamName}\", \"players\": [";
+        //     foreach($this->players as $player){
+        //         $json .= "\"{$player}\",";
+        //     }
+        //     $json = substr($json, 0, -1);
+        //     return $json .= "]}";
+        // }
     }
 ?>
